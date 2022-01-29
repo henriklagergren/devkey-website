@@ -54,14 +54,11 @@ const ActionButton = styled.button`
   margin: 0;
   outline: none;
   padding: 13px 23px;
-  position: relative;
   text-align: center;
-  text-decoration: none;
   touch-action: manipulation;
   transition: box-shadow 0.2s, -ms-transform 0.1s, -webkit-transform 0.1s,
     transform 0.1s;
   user-select: none;
-  -webkit-user-select: none;
   width: auto;
 
   &:focus-visible {

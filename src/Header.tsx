@@ -1,38 +1,41 @@
-import { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import logo from './assets/images/devkey_logo.png';
+import { useEffect, useState } from "react";
+import styled from "styled-components";
+import logo from "./assets/images/devkey_logo.png";
 
-const Wrapper = styled.div<{activeHeader: boolean}>`
-    width: 100vw;
-    height: 74px;
-    display: flex;
-    box-sizing: border-box;
-    background-color: ${(props) => (props.activeHeader ? 'white' : 'transparent')};
-    justify-content: space-between;
-    position: fixed;
-    top: 0;
+const Wrapper = styled.div<{ activeHeader: boolean }>`
+  width: 100vw;
+  height: 74px;
+  display: flex;
+  box-sizing: border-box;
+  background-color: ${(props) =>
+    props.activeHeader ? "white" : "transparent"};
+  box-shadow: ${(props) =>
+    props.activeHeader ? "0 2px 4px 0 rgba(0,0,0,.2)" : "none"};
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
 `;
 
-const Logo = styled.img<{activeHeader: boolean}>`
-    height: calc(100% - 20px);
-    width: auto;
-    padding: 10px;
-    filter: ${(props) => (props.activeHeader ? 'invert(1)' : 'none')};
+const Logo = styled.img<{ activeHeader: boolean }>`
+  height: calc(100% - 20px);
+  width: auto;
+  padding: 10px;
+  filter: ${(props) => (props.activeHeader ? "invert(1)" : "none")};
 `;
 
 const HeaderRow = styled.ul`
-    width: calc(100% - 142px);
-    display: flex;
-    justify-content: space-around;
-    margin: 0;
-    padding: 0 15%;
-    align-items: center;
+  width: calc(100% - 142px);
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0 15%;
+  align-items: center;
 `;
 
-const RowItem = styled.li<{activeHeader: boolean}>`
-    color: ${(props) => (props.activeHeader ? 'black' : 'white')};
-    text-transform: uppercase;
-    list-style: none;
+const RowItem = styled.li<{ activeHeader: boolean }>`
+  color: ${(props) => (props.activeHeader ? "black" : "white")};
+  text-transform: uppercase;
+  list-style: none;
 `;
 
 function Header() {
@@ -48,10 +51,10 @@ function Header() {
       }
     };
 
-    window.addEventListener('scroll', scrollListener);
+    window.addEventListener("scroll", scrollListener);
 
     return () => {
-      window.removeEventListener('scroll', scrollListener);
+      window.removeEventListener("scroll", scrollListener);
     };
   }, [activeHeader]);
 
