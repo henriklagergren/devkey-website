@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Header from './Header';
+import IntroElement from './IntroElement';
 
 const Wrapper = styled.div`
   width  :100vw;
@@ -10,6 +11,7 @@ function App() {
   return (
     <Wrapper>
       <Header/>
+      <IntroElement/>
     </Wrapper>
   );
 }
