@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Header from "./Header";
 import IntroElement from "./IntroElement";
+import OurProjectsElement from "./OurProjectsElement";
 import WhyUsElement from "./WhyUsElement";
 
 const Wrapper = styled.div`
@@ -14,6 +15,7 @@ function App() {
       <Header />
       <IntroElement />
       <WhyUsElement />
+      <OurProjectsElement />
     </Wrapper>
   );
 }
