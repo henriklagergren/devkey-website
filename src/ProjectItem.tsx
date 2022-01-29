@@ -14,7 +14,7 @@ const AppImage = styled.img`
 `;
 
 const Content = styled.div`
-  width: 40%;
+  width: 30%;
   text-align: left;
   margin: 0 20px;
 `;
@@ -107,16 +107,24 @@ const CheckboxText = styled.h4`
 
 type props = {
   appImage: string;
+  mirrorImage: boolean;
   appIcon: string;
   title: string;
   body: string;
   checkboxTexts: string[];
 };
 
-function ProjectItem({ appImage, appIcon, title, body, checkboxTexts }: props) {
+function ProjectItem({
+  mirrorImage,
+  appImage,
+  appIcon,
+  title,
+  body,
+  checkboxTexts,
+}: props) {
   return (
     <Wrapper>
-      <AppImage src={appImage} />
+      {!mirrorImage ? <AppImage src={appImage} /> : <></>}
       <Content>
         <Header>
           <AppIcon src={appIcon} />
@@ -137,6 +145,7 @@ function ProjectItem({ appImage, appIcon, title, body, checkboxTexts }: props) {
           <AppButton>App Store</AppButton>
         </Buttons>
       </Content>
+      {mirrorImage ? <AppImage src={appImage} /> : <></>}
     </Wrapper>
   );
 }

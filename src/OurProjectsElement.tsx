@@ -2,10 +2,11 @@ import styled from "styled-components";
 import ProjectItem from "./ProjectItem";
 import FixaKorkortIcon from "./assets/images/fixa-korkort-icon.png";
 import FixaKorkortImage from "./assets/images/fixa-korkort-app.png";
+import BadtempenIcon from "./assets/images/badtempen-icon.png";
+import BadtempenImage from "./assets/images/badtempen-app.png";
 
 const BackgroundWrapper = styled.div`
   background-color: #023047;
-  height: 800px;
 `;
 
 const Title = styled.h2`
@@ -21,6 +22,7 @@ function OurProjectsElement() {
     <BackgroundWrapper>
       <Title>Våra projekt</Title>
       <ProjectItem
+        mirrorImage={false}
         appImage={FixaKorkortImage}
         appIcon={FixaKorkortIcon}
         title="Fixa Körkort"
@@ -29,6 +31,19 @@ function OurProjectsElement() {
           "Tillgänglig på Android & iOS",
           "Totalt över 40 tusen nedladdningar",
           "Hjälpt massor av svenskar att ta körkort",
+        ]}
+      />
+
+      <ProjectItem
+        mirrorImage={true}
+        appImage={BadtempenImage}
+        appIcon={BadtempenIcon}
+        title="Badtempen"
+        body="Badtempen gör det supersmidigt att dagligen få vattentemperaturer hos din närmsta badplats. Appen visar nämligen vattentemperaturer året om för alla badplatser längs med den svenska kusten."
+        checkboxTexts={[
+          "Tillgänglig på Android & iOS",
+          "Över 550 stycken badplatser",
+          "Temperaturer uppdateras var tredje timme",
         ]}
       />
     </BackgroundWrapper>
