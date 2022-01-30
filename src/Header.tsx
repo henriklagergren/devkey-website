@@ -34,7 +34,7 @@ const HeaderRow = styled.ul`
   align-items: center;
 `;
 
-const RowItem = styled(Link)<{ activeHeader: boolean }>`
+const RowItem = styled.div<{ activeHeader: boolean }>`
   color: ${(props) => (props.activeHeader ? "black" : "white")};
   text-transform: uppercase;
   list-style: none;
@@ -69,33 +69,20 @@ function Header() {
         onClick={() => Scroll.scrollToTop()}
       />
       <HeaderRow>
-        <RowItem activeHeader={activeHeader} to="home" smooth={true}>
-          Hem
-        </RowItem>
-        <RowItem
-          activeHeader={activeHeader}
-          to="whyUs"
-          smooth={true}
-          offset={-100}
-        >
-          Varför devkey?
-        </RowItem>
-        <RowItem
-          activeHeader={activeHeader}
-          to="ourProjects"
-          smooth={true}
-          offset={-100}
-        >
-          Våra Projekt
-        </RowItem>
-        <RowItem
-          activeHeader={activeHeader}
-          to="contact"
-          smooth={true}
-          offset={-100}
-        >
-          Kontakt
-        </RowItem>
+        <Link to="home" smooth={true} offset={-100}>
+          <RowItem activeHeader={activeHeader}>Hem</RowItem>
+        </Link>
+        <Link to="whyUs" smooth={true} offset={-100}>
+          <RowItem activeHeader={activeHeader}>Varför devkey?</RowItem>
+        </Link>
+
+        <Link to="ourProjects" smooth={true} offset={-100}>
+          <RowItem activeHeader={activeHeader}>Våra Projekt</RowItem>
+        </Link>
+
+        <Link to="contact" smooth={true} offset={-100}>
+          <RowItem activeHeader={activeHeader}>Kontakt</RowItem>
+        </Link>
       </HeaderRow>
     </Wrapper>
   );

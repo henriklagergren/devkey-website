@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import AppFigure from "./assets/images/app_illustration.svg";
+import { Link } from "react-scroll";
 
 const BackgroundWrapper = styled.div`
   height: 330px;
@@ -38,7 +39,7 @@ const Body = styled.h3`
   font-size: 16px;
 `;
 
-const ActionButton = styled.button`
+const ActionButton = styled(Link)`
   background-color: #ffffff;
   border: 1px solid #222222;
   border-radius: 8px;
@@ -96,7 +97,9 @@ function IntroElement() {
             Googles populära ramverk Flutter, som fungerar för både iOS &
             Android.
           </Body>
-          <ActionButton>Hör av dig till oss</ActionButton>
+          <ActionButton to="contact" smooth={true} offset={-100}>
+            Hör av dig till oss
+          </ActionButton>
         </Column>
         <Figure src={AppFigure} />
       </BackgroundWrapper>
