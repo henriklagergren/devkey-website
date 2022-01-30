@@ -42,7 +42,7 @@ const Grid = styled.div`
 function WhyUsElement() {
   return (
     <div>
-      <BackgroundWrapper>
+      <BackgroundWrapper id="whyUs">
         <Title>Varför devKey?</Title>
         <Body>
           Det finns flera anledningar till att välja devKey som apputvecklare:

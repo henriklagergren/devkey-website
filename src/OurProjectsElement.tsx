@@ -19,7 +19,7 @@ const Title = styled.h2`
 
 function OurProjectsElement() {
   return (
-    <BackgroundWrapper>
+    <BackgroundWrapper id="ourProjects">
       <Title>Våra projekt</Title>
       <ProjectItem
         mirrorImage={false}

@@ -86,7 +86,7 @@ const Figure = styled.img`
 
 function IntroElement() {
   return (
-    <div>
+    <div id="home">
       <BackgroundWrapper>
         <Column>
           <Title>Nyckeln till din apputveckling</Title>

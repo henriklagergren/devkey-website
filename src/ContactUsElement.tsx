@@ -101,7 +101,7 @@ const SubmitButton = styled.button`
 
 function ContactUsElement() {
   return (
-    <Wrapper>
+    <Wrapper id="contact">
       <Title>Vill du få din app utvecklad?</Title>
       <Body>Fyll i forumuläret så återkommer vi så snart som möjligt!</Body>
       <ContactForm>

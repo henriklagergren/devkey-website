@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import logo from "./assets/images/devkey_logo.png";
+import { Link, animateScroll as Scroll } from "react-scroll";
 
 const Wrapper = styled.div<{ activeHeader: boolean }>`
   width: 100vw;
@@ -21,6 +22,7 @@ const Logo = styled.img<{ activeHeader: boolean }>`
   width: auto;
   padding: 10px;
   filter: ${(props) => (props.activeHeader ? "invert(1)" : "none")};
+  cursor: pointer;
 `;
 
 const HeaderRow = styled.ul`
@@ -32,10 +34,11 @@ const HeaderRow = styled.ul`
   align-items: center;
 `;
 
-const RowItem = styled.li<{ activeHeader: boolean }>`
+const RowItem = styled(Link)<{ activeHeader: boolean }>`
   color: ${(props) => (props.activeHeader ? "black" : "white")};
   text-transform: uppercase;
   list-style: none;
+  cursor: pointer;
 `;
 
 function Header() {
@@ -60,12 +63,39 @@ function Header() {
 
   return (
     <Wrapper activeHeader={activeHeader}>
-      <Logo src={logo} activeHeader={activeHeader} />
+      <Logo
+        src={logo}
+        activeHeader={activeHeader}
+        onClick={() => Scroll.scrollToTop()}
+      />
       <HeaderRow>
-        <RowItem activeHeader={activeHeader}>Hem</RowItem>
-        <RowItem activeHeader={activeHeader}>Varför devkey?</RowItem>
-        <RowItem activeHeader={activeHeader}>Våra Projekt</RowItem>
-        <RowItem activeHeader={activeHeader}>Kontakt</RowItem>
+        <RowItem activeHeader={activeHeader} to="home" smooth={true}>
+          Hem
+        </RowItem>
+        <RowItem
+          activeHeader={activeHeader}
+          to="whyUs"
+          smooth={true}
+          offset={-100}
+        >
+          Varför devkey?
+        </RowItem>
+        <RowItem
+          activeHeader={activeHeader}
+          to="ourProjects"
+          smooth={true}
+          offset={-100}
+        >
+          Våra Projekt
+        </RowItem>
+        <RowItem
+          activeHeader={activeHeader}
+          to="contact"
+          smooth={true}
+          offset={-100}
+        >
+          Kontakt
+        </RowItem>
       </HeaderRow>
     </Wrapper>
   );
