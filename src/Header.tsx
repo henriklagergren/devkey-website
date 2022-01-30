@@ -15,6 +15,7 @@ const Wrapper = styled.div<{ activeHeader: boolean }>`
   justify-content: space-between;
   position: fixed;
   top: 0;
+  transition: all 0.2s;
 `;
 
 const Logo = styled.img<{ activeHeader: boolean }>`
@@ -28,16 +29,18 @@ const Logo = styled.img<{ activeHeader: boolean }>`
 const HeaderRow = styled.ul`
   width: calc(100% - 142px);
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   margin: 0;
   padding: 0 15%;
   align-items: center;
 `;
 
-const RowItem = styled.div<{ activeHeader: boolean }>`
+const RowItem = styled.h4<{ activeHeader: boolean }>`
   color: ${(props) => (props.activeHeader ? "black" : "white")};
   text-transform: uppercase;
-  list-style: none;
+  margin: 30px;
+  font-weight: 700;
+  font-size: 15px;
   cursor: pointer;
 `;
 
