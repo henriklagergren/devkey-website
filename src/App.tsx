@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import ContactUsElement from "./ContactUsElement";
+import Footer from "./Footer";
 import Header from "./Header";
 import IntroElement from "./IntroElement";
 import OurProjectsElement from "./OurProjectsElement";
@@ -18,6 +19,7 @@ function App() {
       <WhyUsElement />
       <OurProjectsElement />
       <ContactUsElement />
+      <Footer />
     </Wrapper>
   );
 }

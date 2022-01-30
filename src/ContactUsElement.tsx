@@ -79,6 +79,26 @@ const BigFormInput = styled.textarea`
   box-sizing: border-box;
 `;
 
+const SubmitButton = styled.button`
+  padding: 12px 20px;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s;
+  font-weight: 600;
+  border-radius: 15px;
+  background-color: #023047;
+  border: 1px solid #023047;
+  color: #ffffff;
+  box-shadow: 0 3px 5px 0 rgba(47, 85, 212, 0.3);
+  cursor: pointer;
+  grid-area: 3 / 1 / 3 / 3;
+
+  &:hover {
+    background-color: #2443ac;
+    border-color: #2443ac;
+  }
+`;
+
 function ContactUsElement() {
   return (
     <Wrapper>
@@ -106,6 +126,7 @@ function ContactUsElement() {
             <BigFormInput placeholder="Meddelande"></BigFormInput>
           </BoxForm>
         </LargeBox>
+        <SubmitButton>Skicka meddelande</SubmitButton>
       </ContactForm>
     </Wrapper>
   );
