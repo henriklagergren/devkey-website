@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import ContactFormNameIcon from "./assets/images/contact-icon-man.svg";
 import MailIcon from "./assets/images/mail-icon.svg";
 import TalkBubbleIcon from "./assets/images/talk-bubble.svg";
+import ClipLoader from "react-spinners/ClipLoader";
 import $ from "jquery";
 
 const Wrapper = styled.div`
@@ -99,25 +100,44 @@ const SubmitButton = styled.button`
     background-color: #2443ac;
     border-color: #2443ac;
   }
+
+  &:disabled {
+    background-color: #5e5e5e;
+    border-color: #5e5e5e;
+  }
 `;
 
-const ThanksForEmail = styled.div``;
+enum Email {
+  not_sent,
+  sending,
+  sent,
+  failed,
+}
+
+const EmailMessage = styled.div<{ emailStatus: Email }>`
+  font-size: ${(props) => (props.emailStatus === Email.sent ? "20px" : "15px")};
+  color: ${(props) => (props.emailStatus === Email.sent ? "green" : "red")};
+  font-weight: 700;
+`;
 
 function ContactUsElement() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [sentEmail, setSentEmail] = useState(false);
+  const [contactForm, setContactForm] = useState(Email.not_sent);
 
-  const sendContactForm = () => {
-    console.log(name);
-    console.log(email);
-    console.log(message);
+  useEffect(() => {
+    if (contactForm === Email.sent) {
+      setName("");
+      setEmail("");
+      setMessage("");
+    }
+  }, [contactForm]);
 
+  const sendContactForm = async () => {
     $.ajax({
       url: process.env.REACT_APP_FIREBASE_CONTACTFORM_URL,
       method: "POST",
-      timeout: 0,
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
@@ -127,13 +147,12 @@ function ContactUsElement() {
         message: message,
       },
     })
-      .done((response) => {
-        setName("");
-        setEmail("");
-        setMessage("");
-        setSentEmail(true);
+      .done(() => {
+        setContactForm(Email.sent);
       })
-      .fail((response) => {});
+      .fail(() => {
+        setContactForm(Email.failed);
+      });
   };
 
   return (
@@ -148,6 +167,7 @@ function ContactUsElement() {
             <FormInput
               placeholder="Namn/Företag"
               id="name"
+              value={name}
               onInput={(e) => setName(e.currentTarget.value)}
             ></FormInput>
           </BoxForm>
@@ -159,6 +179,7 @@ function ContactUsElement() {
             <FormInput
               placeholder="Email"
               id="email"
+              value={email}
               onInput={(e) => setEmail(e.currentTarget.value)}
             ></FormInput>
           </BoxForm>
@@ -170,18 +191,38 @@ function ContactUsElement() {
             <BigFormInput
               placeholder="Meddelande"
               id="message"
+              value={message}
               onInput={(e) => setMessage(e.currentTarget.value)}
             ></BigFormInput>
           </BoxForm>
         </LargeBox>
-        {!sentEmail ? (
-          <ThanksForEmail>Tack för ditt meddelande!</ThanksForEmail>
-        ) : (
-          <></>
-        )}
-        <SubmitButton id="submit" onClick={() => sendContactForm()}>
-          Skicka meddelande
+        <SubmitButton
+          id="submit"
+          onClick={() => {
+            setContactForm(Email.sending);
+            sendContactForm();
+          }}
+          disabled={contactForm === Email.sending}
+        >
+          {contactForm === Email.sending ? (
+            <ClipLoader
+              color={"#fffff"}
+              loading={contactForm === Email.sending}
+            />
+          ) : (
+            "Skicka meddelande"
+          )}
         </SubmitButton>
+        {contactForm === Email.sent && (
+          <EmailMessage emailStatus={contactForm}>
+            Tack för ditt meddelande!
+          </EmailMessage>
+        )}
+        {contactForm === Email.failed && (
+          <EmailMessage emailStatus={contactForm}>
+            Ett fel uppstod när meddelandet skulle skickas.
+          </EmailMessage>
+        )}
       </ContactForm>
     </Wrapper>
   );

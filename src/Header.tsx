@@ -16,6 +16,7 @@ const Wrapper = styled.div<{ activeHeader: boolean }>`
   position: fixed;
   top: 0;
   transition: all 0.2s;
+  z-index: 1;
 `;
 
 const Logo = styled.img<{ activeHeader: boolean }>`
