@@ -1,7 +1,9 @@
+import { useState } from "react";
 import styled from "styled-components";
 import ContactFormNameIcon from "./assets/images/contact-icon-man.svg";
 import MailIcon from "./assets/images/mail-icon.svg";
 import TalkBubbleIcon from "./assets/images/talk-bubble.svg";
+import $ from "jquery";
 
 const Wrapper = styled.div`
   margin: 30px 5%;
@@ -99,7 +101,41 @@ const SubmitButton = styled.button`
   }
 `;
 
+const ThanksForEmail = styled.div``;
+
 function ContactUsElement() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [sentEmail, setSentEmail] = useState(false);
+
+  const sendContactForm = () => {
+    console.log(name);
+    console.log(email);
+    console.log(message);
+
+    $.ajax({
+      url: process.env.REACT_APP_FIREBASE_CONTACTFORM_URL,
+      method: "POST",
+      timeout: 0,
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      data: {
+        name: name,
+        email: email,
+        message: message,
+      },
+    })
+      .done((response) => {
+        setName("");
+        setEmail("");
+        setMessage("");
+        setSentEmail(true);
+      })
+      .fail((response) => {});
+  };
+
   return (
     <Wrapper id="contact">
       <Title>Vill du få din app utvecklad?</Title>
@@ -109,24 +145,43 @@ function ContactUsElement() {
           <BoxName>Namn/Företag:</BoxName>
           <BoxForm>
             <FormIcon src={ContactFormNameIcon} />
-            <FormInput placeholder="Namn/Företag"></FormInput>
+            <FormInput
+              placeholder="Namn/Företag"
+              id="name"
+              onInput={(e) => setName(e.currentTarget.value)}
+            ></FormInput>
           </BoxForm>
         </div>
         <div>
           <BoxName>Email:</BoxName>
           <BoxForm>
             <FormIcon src={MailIcon} />
-            <FormInput placeholder="Email"></FormInput>
+            <FormInput
+              placeholder="Email"
+              id="email"
+              onInput={(e) => setEmail(e.currentTarget.value)}
+            ></FormInput>
           </BoxForm>
         </div>
         <LargeBox>
           <BoxName>Meddelande:</BoxName>
           <BoxForm>
             <FormIcon src={TalkBubbleIcon} />
-            <BigFormInput placeholder="Meddelande"></BigFormInput>
+            <BigFormInput
+              placeholder="Meddelande"
+              id="message"
+              onInput={(e) => setMessage(e.currentTarget.value)}
+            ></BigFormInput>
           </BoxForm>
         </LargeBox>
-        <SubmitButton>Skicka meddelande</SubmitButton>
+        {!sentEmail ? (
+          <ThanksForEmail>Tack för ditt meddelande!</ThanksForEmail>
+        ) : (
+          <></>
+        )}
+        <SubmitButton id="submit" onClick={() => sendContactForm()}>
+          Skicka meddelande
+        </SubmitButton>
       </ContactForm>
     </Wrapper>
   );
