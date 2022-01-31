@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import logo from "./assets/images/devkey_logo.png";
 import { Link, animateScroll as Scroll } from "react-scroll";
+import MobileMenu from "./MobileMenu";
+import { mobile, mobileMaxWidth } from "./globalConstants";
 
 const Wrapper = styled.div<{ activeHeader: boolean }>`
   width: 100vw;
@@ -34,6 +36,10 @@ const HeaderRow = styled.ul`
   margin: 0;
   padding: 0 15%;
   align-items: center;
+
+  @media screen and (max-width: ${mobileMaxWidth}) {
+    display: none;
+  }
 `;
 
 const RowItem = styled.h4<{ activeHeader: boolean }>`
@@ -72,6 +78,7 @@ function Header() {
         activeHeader={activeHeader}
         onClick={() => Scroll.scrollToTop()}
       />
+
       <HeaderRow>
         <Link to="home" smooth={true} offset={-100}>
           <RowItem activeHeader={activeHeader}>Hem</RowItem>
@@ -88,6 +95,7 @@ function Header() {
           <RowItem activeHeader={activeHeader}>Kontakt</RowItem>
         </Link>
       </HeaderRow>
+      <MobileMenu activeHeader={activeHeader} />
     </Wrapper>
   );
 }

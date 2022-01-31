@@ -7,7 +7,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import $ from "jquery";
 
 const Wrapper = styled.div`
-  margin: 30px 5%;
+  margin: 50px 5%;
 `;
 
 const Title = styled.h2`
@@ -26,12 +26,12 @@ const ContactForm = styled.div`
   margin-top: 30px;
   padding: 50px;
   border-radius: 10px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 4px 6px 0 rgba(0, 0, 0, 0.3);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 30px;
-  grid-row-gap: 20px;
+  grid-row-gap: 10px;
 `;
 
 const LargeBox = styled.div`
@@ -70,8 +70,8 @@ const FormInput = styled.input`
 `;
 
 const BigFormInput = styled.textarea`
-  min-height: 40px;
   width: 100%;
+  height: 80px;
   font-weight: 400;
   font-size: 14px;
   line-height: 26px;
@@ -80,6 +80,7 @@ const BigFormInput = styled.textarea`
   border: 1px solid #ced4da;
   background-color: #ffffff;
   box-sizing: border-box;
+  resize: none;
 `;
 
 const SubmitButton = styled.button`

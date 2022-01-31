@@ -82,7 +82,7 @@ const ActionButton = styled(Link)`
 `;
 
 const Figure = styled.img`
-  height: 435px;
+  width: 40%;
 `;
 
 function IntroElement() {

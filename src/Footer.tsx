@@ -3,8 +3,7 @@ import DevkeyLogo from "./assets/images/devkey_logo.png";
 
 const Wrapper = styled.div`
   padding: 20px;
-  padding-top: 60px;
-  background-color: #023047;
+  background-color: #202942;
 `;
 
 const CompanyIcon = styled.img`
