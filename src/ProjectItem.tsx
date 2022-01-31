@@ -112,6 +112,8 @@ type props = {
   title: string;
   body: string;
   checkboxTexts: string[];
+  appStoreLink: string;
+  googlePlayLink: string;
 };
 
 function ProjectItem({
@@ -121,6 +123,8 @@ function ProjectItem({
   title,
   body,
   checkboxTexts,
+  appStoreLink,
+  googlePlayLink,
 }: props) {
   return (
     <Wrapper>
@@ -141,8 +145,12 @@ function ProjectItem({
           );
         })}
         <Buttons>
-          <AppButton>Google Play</AppButton>
-          <AppButton>App Store</AppButton>
+          <AppButton onClick={() => window.open(googlePlayLink)}>
+            Google Play
+          </AppButton>
+          <AppButton onClick={() => window.open(appStoreLink)}>
+            App Store
+          </AppButton>
         </Buttons>
       </Content>
       {mirrorImage ? <AppImage src={appImage} /> : <></>}

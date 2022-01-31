@@ -32,6 +32,8 @@ function OurProjectsElement() {
           "Totalt över 40 tusen nedladdningar",
           "Hjälpt massor av svenskar att ta körkort",
         ]}
+        googlePlayLink="https://play.google.com/store/apps/details?hl=sv&id=com.korkort"
+        appStoreLink="https://apps.apple.com/SE/app/id1455678857"
       />
 
       <ProjectItem
@@ -45,6 +47,8 @@ function OurProjectsElement() {
           "Över 550 stycken badplatser",
           "Temperaturer uppdateras var tredje timme",
         ]}
+        googlePlayLink="https://play.google.com/store/apps/details?id=se.badtempen.badtempen"
+        appStoreLink="https://apps.apple.com/se/app/badtempen/id1468679946"
       />
     </BackgroundWrapper>
   );
