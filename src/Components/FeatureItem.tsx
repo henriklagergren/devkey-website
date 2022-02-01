@@ -36,7 +36,7 @@ type props = {
   body: string;
 };
 
-function FeatureItem({ icon, title, body }: props) {
+const FeatureItem = ({ icon, title, body }: props) => {
   return (
     <Wrapper>
       <Icon src={icon} />
@@ -44,6 +44,6 @@ function FeatureItem({ icon, title, body }: props) {
       <Body>{body}</Body>
     </Wrapper>
   );
-}
+};
 
 export default FeatureItem;

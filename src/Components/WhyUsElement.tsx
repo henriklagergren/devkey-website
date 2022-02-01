@@ -1,16 +1,16 @@
 import styled from "styled-components";
-import BoltIcon from "./assets/images/bolt.svg";
-import SavingsIcon from "./assets/images/savings.svg";
-import ScheduleIcon from "./assets/images/schedule.svg";
-import SmartphoneIcon from "./assets/images/smartphone.svg";
-import SpeedIcon from "./assets/images/speed.svg";
-import HotIcon from "./assets/images/whatshot.svg";
+import BoltIcon from "./../assets/images/bolt.svg";
+import SavingsIcon from "./../assets/images/savings.svg";
+import ScheduleIcon from "./../assets/images/schedule.svg";
+import SmartphoneIcon from "./../assets/images/smartphone.svg";
+import SpeedIcon from "./../assets/images/speed.svg";
+import HotIcon from "./../assets/images/whatshot.svg";
 import FeatureItem from "./FeatureItem";
-import { mobileMaxWidth } from "./globalConstants";
-import { ReactComponent as DownWave } from "./assets/images/down_wave.svg";
+import { mobileMaxWidth } from "./../globalConstants";
+import { ReactComponent as DownWave } from "./../assets/images/down_wave.svg";
 
 const Wrapper = styled.div`
-  margin-bottom: -4px;
+  margin-bottom: -6px;
 `;
 
 const Title = styled.h2`
@@ -38,7 +38,7 @@ const Grid = styled.div`
   }
 `;
 
-function WhyUsElement() {
+const WhyUsElement = () => {
   return (
     <Wrapper id="whyUs">
       <Title>Varför devKey?</Title>
@@ -80,6 +80,6 @@ function WhyUsElement() {
       <DownWave />
     </Wrapper>
   );
-}
+};
 
 export default WhyUsElement;

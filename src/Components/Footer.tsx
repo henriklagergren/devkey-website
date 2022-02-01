@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import DevkeyLogo from "./assets/images/devkey_logo.png";
-import { mobileMaxWidth } from "./globalConstants";
+import DevkeyLogo from "./../assets/images/devkey_logo.png";
+import { mobileMaxWidth } from "./../globalConstants";
 
 const Wrapper = styled.div`
   padding: 20px;
@@ -27,7 +27,7 @@ const Divider = styled.div`
   border-top: 1px solid #0e415a;
 `;
 
-function Footer() {
+const Footer = () => {
   return (
     <Wrapper>
       <CompanyIcon src={DevkeyLogo} />
@@ -40,6 +40,6 @@ function Footer() {
       <Body>© {new Date().getFullYear()} devkey Software</Body>
     </Wrapper>
   );
-}
+};
 
 export default Footer;

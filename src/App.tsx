@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import ContactUsElement from "./ContactUsElement";
-import Footer from "./Footer";
-import Header from "./Header";
-import IntroElement from "./IntroElement";
-import OurProjectsElement from "./OurProjectsElement";
-import WhyUsElement from "./WhyUsElement";
+import ContactUsElement from "./Components/ContactUsElement";
+import Footer from "./Components/Footer";
+import Header from "./Components/Header";
+import IntroElement from "./Components/IntroElement";
+import OurProjectsElement from "./Components/OurProjectsElement";
+import WhyUsElement from "./Components/WhyUsElement";
 
 const Wrapper = styled.div`
   width: 100vw;

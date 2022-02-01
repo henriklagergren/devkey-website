@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Checkbox from "./assets/images/checkbox.svg";
-import { mobileMaxWidth, mobileMinWidth } from "./globalConstants";
+import Checkbox from "./../assets/images/checkbox.svg";
+import { mobileMaxWidth, mobileMinWidth } from "./../globalConstants";
 
 const Wrapper = styled.div`
   padding: 40px;
@@ -154,7 +154,7 @@ type props = {
   googlePlayLink: string;
 };
 
-function ProjectItem({
+const ProjectItem = ({
   mirrorImage,
   appImage,
   appIcon,
@@ -163,7 +163,7 @@ function ProjectItem({
   checkboxTexts,
   appStoreLink,
   googlePlayLink,
-}: props) {
+}: props) => {
   return (
     <Wrapper>
       {!mirrorImage && <AppImage src={appImage} />}
@@ -195,6 +195,6 @@ function ProjectItem({
       {mirrorImage ? <AppImage src={appImage} /> : <></>}
     </Wrapper>
   );
-}
+};
 
 export default ProjectItem;

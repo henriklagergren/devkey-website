@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import logo from "./assets/images/devkey_logo.png";
+import logo from "./../assets/images/devkey_logo.png";
 import { Link, animateScroll as Scroll } from "react-scroll";
 import MobileMenu from "./MobileMenu";
-import { mobileMaxWidth } from "./globalConstants";
+import { mobileMaxWidth } from "./../globalConstants";
 
 const Wrapper = styled.nav<{ activeHeader: boolean }>`
   width: 100vw;
@@ -51,7 +51,7 @@ const RowItem = styled.h4<{ activeHeader: boolean }>`
   cursor: pointer;
 `;
 
-function Header() {
+const Header = () => {
   const [activeHeader, setActiveHeader] = useState(window.scrollY > 60);
 
   useEffect(() => {
@@ -98,6 +98,6 @@ function Header() {
       <MobileMenu activeHeader={activeHeader} />
     </Wrapper>
   );
-}
+};
 
 export default Header;

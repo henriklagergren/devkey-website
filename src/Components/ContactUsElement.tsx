@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import ContactFormNameIcon from "./assets/images/contact-icon-man.svg";
-import MailIcon from "./assets/images/mail-icon.svg";
-import TalkBubbleIcon from "./assets/images/talk-bubble.svg";
+import ContactFormNameIcon from "./../assets/images/contact-icon-man.svg";
+import MailIcon from "./../assets/images/mail-icon.svg";
+import TalkBubbleIcon from "./../assets/images/talk-bubble.svg";
 import ClipLoader from "react-spinners/ClipLoader";
 import $ from "jquery";
-import { mobileMaxWidth } from "./globalConstants";
+import { mobileMaxWidth } from "../globalConstants";
 
 const Wrapper = styled.div`
   margin: 50px 5%;
@@ -127,7 +127,7 @@ const EmailMessage = styled.div<{ emailStatus: Email }>`
   font-weight: 700;
 `;
 
-function ContactUsElement() {
+const ContactUsElement = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -233,6 +233,6 @@ function ContactUsElement() {
       </ContactForm>
     </Wrapper>
   );
-}
+};
 
 export default ContactUsElement;

@@ -1,23 +1,24 @@
 import styled from "styled-components";
 import ProjectItem from "./ProjectItem";
-import FixaKorkortIcon from "./assets/images/fixa-korkort-icon.png";
-import FixaKorkortImage from "./assets/images/fixa-korkort-app.png";
-import BadtempenIcon from "./assets/images/badtempen-icon.png";
-import BadtempenImage from "./assets/images/badtempen-app.png";
+import FixaKorkortIcon from "./../assets/images/fixa-korkort-icon.png";
+import FixaKorkortImage from "./../assets/images/fixa-korkort-app.png";
+import BadtempenIcon from "./../assets/images/badtempen-icon.png";
+import BadtempenImage from "./../assets/images/badtempen-app.png";
 
 const BackgroundWrapper = styled.div`
   background-color: #023047;
+  padding-top: 30px;
 `;
 
 const Title = styled.h2`
   text-align: center;
   font-size: 40px;
   color: #fdfdfd;
-  padding: 0%;
+  padding: 0;
   margin: 0;
 `;
 
-function OurProjectsElement() {
+const OurProjectsElement = () => {
   return (
     <BackgroundWrapper id="ourProjects">
       <Title>Våra projekt</Title>
@@ -52,6 +53,6 @@ function OurProjectsElement() {
       />
     </BackgroundWrapper>
   );
-}
+};
 
 export default OurProjectsElement;

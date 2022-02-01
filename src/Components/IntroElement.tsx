@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import AppFigure from "./assets/images/app_illustration.svg";
+import AppFigure from "./../assets/images/app_illustration.svg";
 import { Link } from "react-scroll";
-import { mobileMaxWidth } from "./globalConstants";
-import { ReactComponent as UpWave } from "./assets/images/up_wave.svg";
+import { mobileMaxWidth } from "../globalConstants";
+import { ReactComponent as UpWave } from "./../assets/images/up_wave.svg";
 
 const BackgroundWrapper = styled.div`
   padding: 100px 30px 0 30px;
@@ -88,7 +88,7 @@ const Figure = styled.img`
   }
 `;
 
-function IntroElement() {
+const IntroElement = () => {
   return (
     <div id="home">
       <BackgroundWrapper>
@@ -109,6 +109,6 @@ function IntroElement() {
       <UpWave />
     </div>
   );
-}
+};
 
 export default IntroElement;
