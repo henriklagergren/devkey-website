@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import DevkeyLogo from "./assets/images/devkey_logo.png";
+import { mobileMaxWidth } from "./globalConstants";
 
 const Wrapper = styled.div`
   padding: 20px;
@@ -15,6 +16,10 @@ const Body = styled.h2`
   font-weight: 400;
   font-size: 16px;
   color: #adb5bd;
+
+  @media screen and (max-width: ${mobileMaxWidth}) {
+    width: 70%;
+  }
 `;
 
 const Divider = styled.div`

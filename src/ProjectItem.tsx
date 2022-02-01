@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Checkbox from "./assets/images/checkbox.svg";
+import { mobileMaxWidth, mobileMinWidth } from "./globalConstants";
 
 const Wrapper = styled.div`
   padding: 40px;
@@ -11,17 +12,39 @@ const Wrapper = styled.div`
 const AppImage = styled.img`
   margin: 0 20px;
   width: 250px;
+
+  @media screen and (max-width: ${mobileMaxWidth}) {
+    display: none;
+  }
+`;
+
+const AppImageMobile = styled.img`
+  margin: 0 20px;
+  width: 150px;
+
+  @media screen and (min-width: ${mobileMinWidth}) {
+    display: none;
+  }
 `;
 
 const Content = styled.div`
   width: 30%;
   text-align: left;
   margin: 0 20px;
+
+  @media screen and (max-width: ${mobileMaxWidth}) {
+    width: 70%;
+    text-align: center;
+  }
 `;
 
 const Header = styled.div`
   display: flex;
   align-items: center;
+
+  @media screen and (max-width: ${mobileMaxWidth}) {
+    justify-content: center;
+  }
 `;
 
 const AppIcon = styled.img`
@@ -92,6 +115,10 @@ const CheckboxWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   padding: 5px 0;
+
+  @media screen and (max-width: ${mobileMaxWidth}) {
+    justify-content: center;
+  }
 `;
 
 const CheckboxIcon = styled.img`
@@ -128,12 +155,13 @@ function ProjectItem({
 }: props) {
   return (
     <Wrapper>
-      {!mirrorImage ? <AppImage src={appImage} /> : <></>}
+      {!mirrorImage && <AppImage src={appImage} />}
       <Content>
         <Header>
           <AppIcon src={appIcon} />
           <ProjectTitle>{title}</ProjectTitle>
         </Header>
+        <AppImageMobile src={appImage} />
         <ProjectBody>{body}</ProjectBody>
 
         {checkboxTexts.map((value, key) => {

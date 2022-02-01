@@ -1,23 +1,15 @@
 import styled from "styled-components";
 import AppFigure from "./assets/images/app_illustration.svg";
 import { Link } from "react-scroll";
+import { mobileMaxWidth } from "./globalConstants";
+import { ReactComponent as UpWave } from "./assets/images/up_wave.svg";
 
 const BackgroundWrapper = styled.div`
-  height: 330px;
   padding: 100px 30px 0 30px;
   display: flex;
   justify-content: center;
   background-color: #023047;
-`;
-
-const LinearCut = styled.div`
-  background-image: linear-gradient(
-    176deg,
-    #023047 70%,
-    transparent calc(70% + 2px)
-  );
-  z-index: 1;
-  height: 300px;
+  margin-bottom: -2px;
 `;
 
 const Column = styled.div`
@@ -27,6 +19,12 @@ const Column = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+
+  @media screen and (max-width: ${mobileMaxWidth}) {
+    width: 80%;
+    text-align: center;
+    align-items: center;
+  }
 `;
 
 const Title = styled.h1`
@@ -83,6 +81,10 @@ const ActionButton = styled(Link)`
 
 const Figure = styled.img`
   width: 40%;
+
+  @media screen and (max-width: ${mobileMaxWidth}) {
+    display: none;
+  }
 `;
 
 function IntroElement() {
@@ -103,7 +105,7 @@ function IntroElement() {
         </Column>
         <Figure src={AppFigure} />
       </BackgroundWrapper>
-      <LinearCut />
+      <UpWave />
     </div>
   );
 }

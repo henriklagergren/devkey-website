@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Link from "react-scroll/modules/components/Link";
 import styled from "styled-components";
-import { mobileMinWidth } from "./globalConstants";
+import { mobileMaxWidth, mobileMinWidth } from "./globalConstants";
 
 const Wrapper = styled.div`
   margin-right: 20px;
@@ -27,6 +27,10 @@ const StyledMenu = styled.nav<{ open: boolean }>`
   display: ${({ open }) => (open ? "flex" : "none")};
   transition: transform 0.3s ease-in-out;
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")};
+
+  @media screen and (max-width: 600px) {
+    width: 50vw;
+  }
 `;
 
 const Hamburger = styled.button<{ open: boolean; activeheader: boolean }>`

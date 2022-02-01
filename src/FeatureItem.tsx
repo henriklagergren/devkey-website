@@ -20,6 +20,7 @@ const Title = styled.h3`
   font-weight: 600;
   line-height: 1.5;
   color: #161c2d;
+  text-align: center;
 `;
 
 const Body = styled.p`

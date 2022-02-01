@@ -3,9 +3,9 @@ import styled from "styled-components";
 import logo from "./assets/images/devkey_logo.png";
 import { Link, animateScroll as Scroll } from "react-scroll";
 import MobileMenu from "./MobileMenu";
-import { mobile, mobileMaxWidth } from "./globalConstants";
+import { mobileMaxWidth } from "./globalConstants";
 
-const Wrapper = styled.div<{ activeHeader: boolean }>`
+const Wrapper = styled.nav<{ activeHeader: boolean }>`
   width: 100vw;
   height: 74px;
   display: flex;
