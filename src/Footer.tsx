@@ -18,7 +18,7 @@ const Body = styled.h2`
   color: #adb5bd;
 
   @media screen and (max-width: ${mobileMaxWidth}) {
-    width: 70%;
+    width: 80%;
   }
 `;
 

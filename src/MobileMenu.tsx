@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Link from "react-scroll/modules/components/Link";
 import styled from "styled-components";
-import { mobileMaxWidth, mobileMinWidth } from "./globalConstants";
+import { mobileMinWidth } from "./globalConstants";
 
 const Wrapper = styled.div`
   margin-right: 20px;

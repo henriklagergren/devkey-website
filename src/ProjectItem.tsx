@@ -36,6 +36,11 @@ const Content = styled.div`
     width: 70%;
     text-align: center;
   }
+
+  @media screen and (max-width: 600px) {
+    width: 90%;
+    margin: 0;
+  }
 `;
 
 const Header = styled.div`
@@ -108,6 +113,10 @@ const AppButton = styled.button`
     cursor: not-allowed;
     opacity: 1;
   }
+
+  @media screen and (max-width: ${mobileMaxWidth}) {
+    margin-bottom: 10px;
+  }
 `;
 
 const CheckboxWrapper = styled.div`
@@ -130,6 +139,8 @@ const CheckboxIcon = styled.img`
 const CheckboxText = styled.h4`
   color: #fdfdfd;
   margin: 0;
+  width: 100%;
+  text-align: left;
 `;
 
 type props = {

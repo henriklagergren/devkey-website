@@ -5,6 +5,7 @@ import MailIcon from "./assets/images/mail-icon.svg";
 import TalkBubbleIcon from "./assets/images/talk-bubble.svg";
 import ClipLoader from "react-spinners/ClipLoader";
 import $ from "jquery";
+import { mobileMaxWidth } from "./globalConstants";
 
 const Wrapper = styled.div`
   margin: 50px 5%;
@@ -32,6 +33,11 @@ const ContactForm = styled.div`
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 30px;
   grid-row-gap: 10px;
+
+  @media screen and (max-width: ${mobileMaxWidth}) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const LargeBox = styled.div`

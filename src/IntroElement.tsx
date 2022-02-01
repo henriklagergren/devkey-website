@@ -24,6 +24,7 @@ const Column = styled.div`
     width: 80%;
     text-align: center;
     align-items: center;
+    margin-bottom: 15px;
   }
 `;
 
