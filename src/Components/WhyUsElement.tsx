@@ -41,9 +41,10 @@ const Grid = styled.div`
 const WhyUsElement = () => {
   return (
     <Wrapper id="whyUs">
-      <Title>Varför devKey?</Title>
+      <Title>Om devKey</Title>
       <Body>
-        Det finns flera anledningar till att välja devKey som apputvecklare:
+        Det finns flera anledningar till varför devKey utvecklar appar i
+        Flutter:
       </Body>
       <Grid>
         <FeatureItem
@@ -57,8 +58,8 @@ const WhyUsElement = () => {
           icon={BoltIcon}
         />
         <FeatureItem
-          title="Låg kostnad"
-          body="Kortare utvecklingstid och vår erfarenhet av ramverket bidrar till lägre kostnader."
+          title="Backade av Google"
+          body="Flutter är open-source, men har Google som grundpelare, vilket gör att utvecklingen snabbt drivs framåt."
           icon={SavingsIcon}
         />
         <FeatureItem

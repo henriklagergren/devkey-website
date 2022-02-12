@@ -32,9 +32,10 @@ const Footer = () => {
     <Wrapper>
       <CompanyIcon src={DevkeyLogo} />
       <Body>
-        Vi hjälper dig att förverkliga eller vidareutveckla ditt företags app
-        idé på ett konstadseffektivt sätt. Alla appar vi bygger skrivs i Googles
-        populära ramverk Flutter, som fungerar för både iOS & Android.
+        devKey har skapat, publicerat, vidareutvecklat två stycken
+        cross-platform mobilappar. Dessa appar underhålls aktivt. Apparna har
+        byggts i Googles populära ramverk Flutter, som fungerar för både iOS &
+        Android.
       </Body>
       <Divider />
       <Body>© {new Date().getFullYear()} devkey Software</Body>

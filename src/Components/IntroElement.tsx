@@ -93,15 +93,15 @@ const IntroElement = () => {
     <div id="home">
       <BackgroundWrapper>
         <Column>
-          <Title>Nyckeln till din apputveckling</Title>
+          <Title>Två publicerade mobilappar.</Title>
           <Body>
-            Vi hjälper dig att förverkliga eller vidareutveckla ditt företags
-            app idé på ett konstadseffektivt sätt. Alla appar vi bygger skrivs i
-            Googles populära ramverk Flutter, som fungerar för både iOS &
-            Android.
+            devKey har skapat, publicerat, vidareutvecklat två stycken
+            cross-platform mobilappar. Dessa appar underhålls aktivt. Apparna
+            har byggts i Googles populära ramverk Flutter, som fungerar för både
+            iOS & Android.
           </Body>
           <ActionButton to="contact" smooth={true} offset={-100}>
-            Hör av dig till oss
+            Frågor? Hör av dig till oss.
           </ActionButton>
         </Column>
         <Figure src={AppFigure} />

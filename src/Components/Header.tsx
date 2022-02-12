@@ -84,11 +84,11 @@ const Header = () => {
           <RowItem activeHeader={activeHeader}>Hem</RowItem>
         </Link>
         <Link to="whyUs" smooth={true} offset={-100}>
-          <RowItem activeHeader={activeHeader}>Varför devkey?</RowItem>
+          <RowItem activeHeader={activeHeader}>Om devkey</RowItem>
         </Link>
 
         <Link to="ourProjects" smooth={true} offset={-100}>
-          <RowItem activeHeader={activeHeader}>Våra Projekt</RowItem>
+          <RowItem activeHeader={activeHeader}>Våra Appar</RowItem>
         </Link>
 
         <Link to="contact" smooth={true} offset={-100}>

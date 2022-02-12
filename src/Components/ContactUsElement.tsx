@@ -164,7 +164,7 @@ const ContactUsElement = () => {
 
   return (
     <Wrapper id="contact">
-      <Title>Vill du få din app utvecklad?</Title>
+      <Title>Har du några frågor till devKey?</Title>
       <Body>Fyll i forumuläret så återkommer vi så snart som möjligt!</Body>
       <ContactForm>
         <div>
