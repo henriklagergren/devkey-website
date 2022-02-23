@@ -62,20 +62,21 @@ const FormIcon = styled.img`
   left: 18px;
 `;
 
-const FormInput = styled.input`
+const FormInput = styled.input<{ isValid: boolean }>`
   width: 100%;
   padding: 6px 12px;
   font-weight: 400;
   font-size: 14px;
   line-height: 26px;
   padding-left: 48px;
-  border: 1px solid #dee2e6;
+  border: ${(props) =>
+    props.isValid ? "1px solid #e6e1de" : "1px solid #bd1212"};
   background-color: #ffffff;
   border-radius: 6px;
   box-sizing: border-box;
 `;
 
-const BigFormInput = styled.textarea`
+const BigFormInput = styled.textarea<{ isValid: boolean }>`
   width: 100%;
   height: 80px;
   font-weight: 400;
@@ -83,7 +84,8 @@ const BigFormInput = styled.textarea`
   line-height: 26px;
   border-radius: 6px;
   padding-left: 48px;
-  border: 1px solid #ced4da;
+  border: ${(props) =>
+    props.isValid ? "1px solid #e6e1de" : "1px solid #bd1212"};
   background-color: #ffffff;
   box-sizing: border-box;
   resize: none;
@@ -118,6 +120,9 @@ enum Email {
   not_sent,
   sending,
   sent,
+  no_name,
+  no_message,
+  wrong_email,
   failed,
 }
 
@@ -142,24 +147,38 @@ const ContactUsElement = () => {
   }, [contactForm]);
 
   const sendContactForm = async () => {
-    $.ajax({
-      url: process.env.REACT_APP_FIREBASE_CONTACTFORM_URL,
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      data: {
-        name: name,
-        email: email,
-        message: message,
-      },
-    })
-      .done(() => {
-        setContactForm(Email.sent);
+    if (name === "") {
+      setContactForm(Email.no_name);
+    } else if (!validateEmail(email)) {
+      setContactForm(Email.wrong_email);
+    } else if (message === "") {
+      setContactForm(Email.no_message);
+    } else {
+      $.ajax({
+        url: process.env.REACT_APP_FIREBASE_CONTACTFORM_URL,
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        data: {
+          name: name,
+          email: email,
+          message: message,
+        },
       })
-      .fail(() => {
-        setContactForm(Email.failed);
-      });
+        .done(() => {
+          setContactForm(Email.sent);
+        })
+        .fail(() => {
+          setContactForm(Email.failed);
+        });
+    }
+  };
+
+  const validateEmail = (email: string) => {
+    const re =
+      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
   };
 
   return (
@@ -172,6 +191,7 @@ const ContactUsElement = () => {
           <BoxForm>
             <FormIcon src={ContactFormNameIcon} />
             <FormInput
+              isValid={contactForm !== Email.no_name}
               placeholder="Namn/Företag"
               id="name"
               value={name}
@@ -184,6 +204,7 @@ const ContactUsElement = () => {
           <BoxForm>
             <FormIcon src={MailIcon} />
             <FormInput
+              isValid={contactForm !== Email.wrong_email}
               placeholder="Email"
               id="email"
               value={email}
@@ -196,6 +217,7 @@ const ContactUsElement = () => {
           <BoxForm>
             <FormIcon src={TalkBubbleIcon} />
             <BigFormInput
+              isValid={contactForm !== Email.no_message}
               placeholder="Meddelande"
               id="message"
               value={message}
@@ -228,6 +250,21 @@ const ContactUsElement = () => {
         {contactForm === Email.failed && (
           <EmailMessage emailStatus={contactForm}>
             Ett fel uppstod när meddelandet skulle skickas.
+          </EmailMessage>
+        )}
+        {contactForm === Email.no_name && (
+          <EmailMessage emailStatus={contactForm}>
+            Vänligen fyll i namn/företag.
+          </EmailMessage>
+        )}
+        {contactForm === Email.no_message && (
+          <EmailMessage emailStatus={contactForm}>
+            Vänligen fyll meddelande.
+          </EmailMessage>
+        )}
+        {contactForm === Email.wrong_email && (
+          <EmailMessage emailStatus={contactForm}>
+            Vänligen fyll i en giltig email.
           </EmailMessage>
         )}
       </ContactForm>

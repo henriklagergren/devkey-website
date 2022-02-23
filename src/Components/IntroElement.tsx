@@ -31,10 +31,11 @@ const Column = styled.div`
 const Title = styled.h1`
   color: white;
   font-size: 45px;
+  margin: 0;
 `;
 
 const Body = styled.h3`
-  color: gray;
+  color: #ddd8d8;
   font-size: 16px;
 `;
 
@@ -95,10 +96,9 @@ const IntroElement = () => {
         <Column>
           <Title>Två publicerade mobilappar.</Title>
           <Body>
-            devKey har skapat, publicerat, vidareutvecklat två stycken
-            cross-platform mobilappar. Dessa appar underhålls aktivt. Apparna
-            har byggts i Googles populära ramverk Flutter, som fungerar för både
-            iOS & Android.
+            devKey har byggt och publicerat två stycken cross-platform
+            mobilappar från grunden. Apparna har byggts i Googles populära
+            ramverk Flutter, som fungerar för både iOS & Android.
           </Body>
           <ActionButton to="contact" smooth={true} offset={-100}>
             Frågor? Hör av dig till oss.

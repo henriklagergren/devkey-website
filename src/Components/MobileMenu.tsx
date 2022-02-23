@@ -104,7 +104,7 @@ const MobileMenu = ({ activeHeader }: props) => {
           offset={-100}
           onClick={() => setOpen(false)}
         >
-          <RowItem>Varför devkey?</RowItem>
+          <RowItem>Om devKey</RowItem>
         </Link>
 
         <Link
@@ -113,7 +113,7 @@ const MobileMenu = ({ activeHeader }: props) => {
           offset={-100}
           onClick={() => setOpen(false)}
         >
-          <RowItem>Våra Projekt</RowItem>
+          <RowItem>Våra appar</RowItem>
         </Link>
 
         <Link
