@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Checkbox from "./../assets/images/checkbox.svg";
+import { ReactComponent as ExternalLinkIcon } from "./../assets/images/external_website.svg";
 import { mobileMaxWidth, mobileMinWidth } from "./../globalConstants";
 
 const Wrapper = styled.div`
@@ -60,9 +61,22 @@ const AppIcon = styled.img`
   display: inline-block;
 `;
 
-const ProjectTitle = styled.h3`
+const TitleRow = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const ProjectTitle = styled.a<{ hasExternalWebsite: boolean }>`
   font-size: 30px;
+  text-decoration: none;
+  font-weight: bold;
   color: #fdfdfd;
+  cursor: ${(props) => (props.hasExternalWebsite ? "pointer" : "default")};
+
+  &:hover {
+    text-decoration: ${(props) =>
+      props.hasExternalWebsite ? "underline" : "none"};
+  }
 `;
 
 const ProjectBody = styled.p`
@@ -143,6 +157,15 @@ const CheckboxText = styled.h4`
   text-align: left;
 `;
 
+const ExternalLinkIconStyled = styled(ExternalLinkIcon)`
+  height: 20px;
+  padding-left: 10px;
+
+  @media screen and (max-width: ${mobileMaxWidth}) {
+    display: none;
+  }
+`;
+
 type props = {
   appImage: string;
   mirrorImage: boolean;
@@ -152,6 +175,7 @@ type props = {
   checkboxTexts: string[];
   appStoreLink: string;
   googlePlayLink: string;
+  externalWebsite?: string;
 };
 
 const ProjectItem = ({
@@ -163,6 +187,7 @@ const ProjectItem = ({
   checkboxTexts,
   appStoreLink,
   googlePlayLink,
+  externalWebsite,
 }: props) => {
   return (
     <Wrapper>
@@ -170,7 +195,16 @@ const ProjectItem = ({
       <Content>
         <Header>
           <AppIcon src={appIcon} />
-          <ProjectTitle>{title}</ProjectTitle>
+          <TitleRow>
+            <ProjectTitle
+              hasExternalWebsite={externalWebsite !== undefined}
+              target="_blank"
+              href={externalWebsite}
+            >
+              {title}
+            </ProjectTitle>
+            {externalWebsite !== undefined && <ExternalLinkIconStyled />}
+          </TitleRow>
         </Header>
         <AppImageMobile src={appImage} />
         <ProjectBody>{body}</ProjectBody>

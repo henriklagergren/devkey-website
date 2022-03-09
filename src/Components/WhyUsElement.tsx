@@ -15,11 +15,12 @@ const Wrapper = styled.div`
 
 const Title = styled.h2`
   text-align: center;
-  font-size: 30px;
+  font-size: 35px;
 `;
 const Body = styled.h3`
   text-align: center;
   font-size: 16px;
+  padding: 0 25px;
 `;
 
 const Grid = styled.div`
@@ -43,8 +44,8 @@ const WhyUsElement = () => {
     <Wrapper id="whyUs">
       <Title>Om devKey</Title>
       <Body>
-        Det finns flera anledningar till varför devKey utvecklar appar i
-        Flutter:
+        Vi gillar appar och har utvecklat med hjälp av ramverket Flutter då det
+        finns flera fördelar med detta:
       </Body>
       <Grid>
         <FeatureItem

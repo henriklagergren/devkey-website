@@ -35,6 +35,7 @@ const OurProjectsElement = () => {
         ]}
         googlePlayLink="https://play.google.com/store/apps/details?hl=sv&id=com.korkort"
         appStoreLink="https://apps.apple.com/SE/app/id1455678857"
+        externalWebsite="https://fixakorkort.se"
       />
 
       <ProjectItem
