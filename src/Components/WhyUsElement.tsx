@@ -1,86 +1,58 @@
 import styled from "styled-components";
-import BoltIcon from "./../assets/images/bolt.svg";
-import SavingsIcon from "./../assets/images/savings.svg";
-import ScheduleIcon from "./../assets/images/schedule.svg";
-import SmartphoneIcon from "./../assets/images/smartphone.svg";
-import SpeedIcon from "./../assets/images/speed.svg";
-import HotIcon from "./../assets/images/whatshot.svg";
-import FeatureItem from "./FeatureItem";
+
 import { mobileMaxWidth } from "./../globalConstants";
 import { ReactComponent as DownWave } from "./../assets/images/down_wave.svg";
 
-const Wrapper = styled.div`
+import ProfilePicture from "./../assets/images/profile_picture.jpg";
+
+const Container = styled.div`
   margin-bottom: -6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Title = styled.h2`
   text-align: center;
   font-size: 35px;
 `;
-const Body = styled.h3`
-  text-align: center;
+const Body = styled.text`
   font-size: 16px;
-  padding: 0 25px;
 `;
 
-const Grid = styled.div`
-  padding: 5%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-row-gap: 50px;
-  grid-column-gap: 30px;
-
+const AppImage = styled.img`
+  margin: 0 20px;
+  width: 200px;
+  border-radius: 200px;
   @media screen and (max-width: ${mobileMaxWidth}) {
-    grid-template-columns: 1fr 1fr;
+    width: 150px;
+    margin-bottom: 20px;
   }
+`;
 
-  @media screen and (max-width: 500px) {
-    grid-template-columns: 1fr;
+const Row = styled.div`
+  width: 75%;
+  display: flex;
+  align-items: center;
+  @media screen and (max-width: ${mobileMaxWidth}) {
+    flex-direction: column;
   }
 `;
 
 const WhyUsElement = () => {
   return (
-    <Wrapper id="whyUs">
+    <Container id="whyUs">
       <Title>Om devKey</Title>
-      <Body>
-        Vi gillar appar och har utvecklat med hjälp av ramverket Flutter då det
-        finns flera fördelar med detta:
-      </Body>
-      <Grid>
-        <FeatureItem
-          title="Både Android & iOS"
-          body="Alla våra appar utvecklas i Googles populära ramverk Flutter, vilket möjliggör en kodbas för både iOS & Android."
-          icon={SmartphoneIcon}
-        />
-        <FeatureItem
-          title="Kort utvecklingstid"
-          body="Hantering av endast en kodbas tillsammans med förbyggda komponenter minskar utvecklingstiden."
-          icon={BoltIcon}
-        />
-        <FeatureItem
-          title="Backade av Google"
-          body="Flutter är open-source, men har Google som grundpelare, vilket gör att utvecklingen snabbt drivs framåt."
-          icon={SavingsIcon}
-        />
-        <FeatureItem
-          title="Bra prestanda"
-          body="Appar skrivna i Flutter presterar bättre än sina konkurrenter, vilket i sin tur höjer användarupplevelsen."
-          icon={SpeedIcon}
-        />
-        <FeatureItem
-          title="Modernt gränssnitt"
-          body="Vi använder oss av Material UI, ett gränssnitt som ligger helt rätt i tiden."
-          icon={HotIcon}
-        />
-        <FeatureItem
-          title="Stödjer äldre mobiler"
-          body="Våra appar ser exakt lika ut på alla enheter, även äldre mobiler."
-          icon={ScheduleIcon}
-        />
-      </Grid>
+      <Row>
+        <AppImage src={ProfilePicture} />
+        <Body>
+          {
+            "Hej! 👋 Jag heter Henrik Lagergren, en passionerad apputvecklare och entreprenör, som ligger bakom devKey. Med en stark bakgrund och stort intresse inom apputveckling har jag lanserat två applikationer tillgängliga både på Google Play och App Store."
+          }
+        </Body>
+      </Row>
       <DownWave />
-    </Wrapper>
+    </Container>
   );
 };
 

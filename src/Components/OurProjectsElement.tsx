@@ -21,7 +21,7 @@ const Title = styled.h2`
 const OurProjectsElement = () => {
   return (
     <BackgroundWrapper id="ourProjects">
-      <Title>Våra appar</Title>
+      <Title>Tillgängliga appar </Title>
       <ProjectItem
         mirrorImage={false}
         appImage={FixaKorkortImage}
