@@ -8,6 +8,7 @@ import WhyUsElement from "./Components/WhyUsElement";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ThermometerAppPrivacyPolicy from "./screens/ThermometerAppPrivacyPolicy";
+import BadtempenAppPrivacyPolicy from "./screens/BadtempenAppPrivacyPolicy";
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
   {
     path: "/thermometer-app-privacy-policy",
     element: <ThermometerAppPrivacyPolicy />,
+  },
+  {
+    path: "/badtempen-privacy-policy",
+    element: <BadtempenAppPrivacyPolicy />,
   },
 ]);
 

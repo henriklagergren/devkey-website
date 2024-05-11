@@ -9,6 +9,8 @@ import { mobileMaxWidth } from "../globalConstants";
 
 const Wrapper = styled.div`
   margin: 50px 5%;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Title = styled.h2`
@@ -28,7 +30,6 @@ const ContactForm = styled.div`
   padding: 50px;
   border-radius: 10px;
   box-shadow: 3px 4px 6px 0 rgba(0, 0, 0, 0.3);
-  display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 30px;

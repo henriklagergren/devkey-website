@@ -94,11 +94,11 @@ const IntroElement = () => {
     <div id="home">
       <BackgroundWrapper>
         <Column>
-          <Title>Två publicerade mobilappar.</Title>
+          <Title>Tre publicerade mobilappar.</Title>
           <Body>
-            devKey har byggt och publicerat två stycken cross-platform
-            mobilappar från grunden. Apparna har byggts i Googles populära
-            ramverk Flutter, som fungerar för både iOS & Android.
+            devKey har byggt och publicerat tre stycken cross-platform
+            mobilappar från grunden. Apparna har byggts i antingen Flutter eller
+            React Native, båda fungerar för både iOS & Android.
           </Body>
           <ActionButton to="contact" smooth={true} offset={-100}>
             Frågor? Hör av dig till oss.

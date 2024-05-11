@@ -20,7 +20,7 @@ const Body = styled.text`
   font-size: 16px;
 `;
 
-const AppImage = styled.img`
+const ProfileImage = styled.img`
   margin: 0 20px;
   width: 200px;
   border-radius: 200px;
@@ -44,10 +44,10 @@ const WhyUsElement = () => {
     <Container id="whyUs">
       <Title>Om devKey</Title>
       <Row>
-        <AppImage src={ProfilePicture} />
+        <ProfileImage src={ProfilePicture} />
         <Body>
           {
-            "Hej! 👋 Jag heter Henrik Lagergren, en passionerad apputvecklare och entreprenör, som ligger bakom devKey. Med en stark bakgrund och stort intresse inom apputveckling har jag lanserat två applikationer tillgängliga både på Google Play och App Store."
+            "Hej! 👋 Jag heter Henrik Lagergren, en passionerad apputvecklare och entreprenör, som ligger bakom devKey. Med en stark bakgrund och stort intresse inom apputveckling har jag lanserat tre applikationer tillgängliga både på Google Play och App Store. Dessa appar är en hobby, därav uppdateras dem inte frekvent. Om du vill läsa mer om apparna kan du göra detta här nedan 👇"
           }
         </Body>
       </Row>

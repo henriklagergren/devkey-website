@@ -4,7 +4,7 @@ import { ReactComponent as ExternalLinkIcon } from "./../assets/images/external_
 import { mobileMaxWidth, mobileMinWidth } from "./../globalConstants";
 
 const Wrapper = styled.div`
-  padding: 40px;
+  padding: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
